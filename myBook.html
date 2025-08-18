@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>My Books - Book Store</title>
+  <style>
+    body {
+      background-color: #f8f9fa; /* Light clean background */
+    }
+    .table-hover tbody tr:hover {
+      background-color: #e9ecef; /* Row hover effect */
+    }
+    .card {
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .navbar {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .btn-secondary {
+      border-radius: 20px;
+      padding: 5px 15px;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">📚 Book Store</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="available_books">Available Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-warning fw-bold" href="my_books">My Books</a>
+        </li>
+      </ul>
+      <a class="btn btn-outline-light" href="book_register">+ Add New Book</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container my-5">
+  <div class="card p-4">
+    <h2 class="mb-4 text-center text-primary">📖 My Book Collection</h2>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover align-middle">
+        <thead class="table-dark">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Author</th>
+          <th>Price</th>
+          <th class="text-center">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="b:${book}">
+          <td th:text="${b.id}"></td>
+          <td th:text="${b.name}"></td>
+          <td th:text="${b.author}"></td>
+          <td th:text="${b.price}"></td>
+          <td class="text-center">
+            <a class="btn btn-danger btn-sm"
+               th:href="@{/deleteMyList/{id}(id=${b.id})}">
+              🗑 Delete
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
