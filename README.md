@@ -23,4 +23,17 @@ A **Book Store Management System** designed to streamline the management of book
 - **Version Control:** Git & GitHub
 
 ## Project Structure 📂
+-bookstore-management/
+-├── src/
+-│ ├── main/
+-│ │ ├── java/com/bookstore
+-│ │ │ ├── controller
+-│ │ │ ├── model
+-│ │ │ ├── repository
+-│ │ │ ├── service
+-│ │ │ └── config
+-│ │ └── resources/
+-│ │ ├── templates
+-│ │ └── application.properties
+-└── pom.xml
 
